@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Excel ke VCF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th.header-column {
+            background-color: #f2f2f2;
+        }
+        .header-row th {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        .header-row {
+            background-color: #e7f1ff;
+        }
+        input[type="text"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Konversi Excel ke VCF</h1>
+    <input type="file" id="file-upload" accept=".xls,.xlsx,.xlx" />
+    
+    <label for="sheet-select">Pilih Sheet:</label>
+    <select id="sheet-select"></select>
+
+    <label for="start-cell">Mulai konversi dari sel (contoh: A2):</label>
+    <input type="text" id="start-cell" placeholder="A2" />
+
+    <label for="base-contact-name">Nama Kontak (akan ditambahkan nomor urut):</label>
+    <input type="text" id="base-contact-name" placeholder="Nama Kontak" />
+    <label for="file-name">Nama File VCF:</label>
+    <input type="text" id="file-name" placeholder="Masukkan nama file">
+    
+    <!-- Link untuk download VCF -->
+    <a id="download-link" style="display:none;">Download VCF</a>
+    
+    <button id="convert-btn">Convert to VCF</button>
+
+    
+
+    <table id="excel-table"></table>
+
+    <script src="script.js"></script>
+</body>
+</html>
